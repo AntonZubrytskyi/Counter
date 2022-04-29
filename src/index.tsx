@@ -23,8 +23,6 @@ root.render(
         <Global />
         <App />
     </Provider>
-     
-    
   </React.StrictMode>
 );
 

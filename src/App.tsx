@@ -13,9 +13,9 @@ const App = () => {
   return (
     <div className="App">
       <CounterContainer>
-        <CounterButton title="+1" handleCounter={() => dispatch(increment())} />
-        <CounterValue>{count}</CounterValue>
-        <CounterButton title="-1" handleCounter={() => dispatch(decrement())} />
+        <CounterButton data_test_id="increment" title="+1" handleCounter={() => dispatch(increment())} />
+        <CounterValue data-testid="counter_value">{count}</CounterValue>
+        <CounterButton data_test_id="decrement" title="-1" handleCounter={() => dispatch(decrement())} />
        </CounterContainer>
     </div>
   );
