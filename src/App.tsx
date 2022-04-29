@@ -1,14 +1,21 @@
 import {CounterContainer} from "./components/CounterContainer/CounterContainer";
 import CounterButton from "./components/CounterButton/CounterButton";
 import { CounterValue } from "./components/CounterValue/CounterValue";
+import {increment, decrement} from "./redux/counterReducer";
+import { useAppDispatch } from "./hooks/useAppDispatch";
+import { useAppSelector} from "./hooks/useAppSelector";
 
-function App() {
+const App = () => {
+
+  const count = useAppSelector(state => state.counter.count);
+  const dispatch = useAppDispatch();
+
   return (
     <div className="App">
       <CounterContainer>
-        <CounterButton title="-1" handleCounter={() => console.log(55)} />
-        <CounterValue>{10}</CounterValue>
-        <CounterButton title="+1" handleCounter={()=>console.log(55)} />
+        <CounterButton title="+1" handleCounter={() => dispatch(increment())} />
+        <CounterValue>{count}</CounterValue>
+        <CounterButton title="-1" handleCounter={() => dispatch(decrement())} />
        </CounterContainer>
     </div>
   );

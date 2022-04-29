@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import styled, {createGlobalStyle} from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -17,10 +19,11 @@ const Global = createGlobalStyle`
 `
 root.render(
   <React.StrictMode>
-    <>
-     <Global/>
-      <App />
-    </>
+    <Provider store={store}>
+        <Global />
+        <App />
+    </Provider>
+     
     
   </React.StrictMode>
 );
